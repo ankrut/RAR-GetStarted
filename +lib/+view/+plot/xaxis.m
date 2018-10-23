@@ -2,7 +2,7 @@ function xaxis(AX,varargin)
 if nargin == 2
 	PROFILES = varargin{1};
 else
-	PROFILES = lib.module.array();
+	PROFILES = lib.ecma.array();
 end
 
 ah = gca;
@@ -15,7 +15,7 @@ end
 % set xlim
 if isfield(AX,'clip')
 	switch(class(AX.clip))
-		case 'lib.module.ProfileClip'
+		case 'lib.profile.clip'
 		case_profileclip(AX,PROFILES)
 			
 		case 'double'

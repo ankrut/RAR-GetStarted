@@ -1,5 +1,5 @@
 function s = select(varargin)
-Q = lib.module.struct(varargin{:});
+Q = lib.ecma.struct(varargin{:});
 s = struct();
 
 for ii=1:numel(Q.id);

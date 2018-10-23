@@ -2,7 +2,7 @@ function curve(varargin)
 Q = parseArguments(varargin{:});
 
 % destructure
-AXES	= lib.module.array(struct2array(Q.axes));
+AXES	= lib.ecma.array(struct2array(Q.axes));
 
 % extract data
 label	= fieldnames(Q.axes);
@@ -18,15 +18,15 @@ formatSpecData	 = [repmat(' %E',[1, numel(label)]) '\r\n'];
 fh = fopen(Q.filepath,'w');
 
 % write header
-if lib.logical(Q.label)
+if lib.bool.logical(Q.label)
 	fprintf(fh,formatSpecHeader,label{:});
 end
 
-if lib.logical(Q.symbol)
+if lib.bool.logical(Q.symbol)
 	fprintf(fh,formatSpecHeader,symbol{:});
 end
 
-if lib.logical(Q.unit)
+if lib.bool.logical(Q.unit)
 	fprintf(fh,formatSpecHeader,unit{:});
 end
 
@@ -37,7 +37,7 @@ fprintf(fh,formatSpecData,[data{:}]);
 fclose(fh);
 
 function Q = parseArguments(varargin)
-Q = lib.module.struct(...
+Q = lib.ecma.struct(...
 	'label',	'on',...
 	'symbol',	'on',...
 	'unit',		'on',...

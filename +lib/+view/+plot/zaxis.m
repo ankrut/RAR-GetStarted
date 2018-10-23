@@ -2,7 +2,7 @@ function zaxis(AZ,varargin)
 if nargin == 2
 	PROFILES = varargin{1};
 else
-	PROFILES = lib.module.array();
+	PROFILES = lib.ecma.array();
 end
 
 ah = gca;
@@ -15,7 +15,7 @@ end
 % set xlim
 if isfield(AZ,'clip')
 	switch(class(AZ.clip))
-		case 'lib.module.ProfileClip'
+		case 'lib.profile.clip'
 		case_profileclip(AZ,PROFILES)
 			
 		case 'double'

@@ -1,5 +1,5 @@
 function h=curve2D(varargin)
-Q = lib.module.struct(...
+Q = lib.ecma.struct(...
 	'plot',		{},...
 	varargin{:}...
 );
@@ -16,8 +16,8 @@ switch(class(ax))
 	case 'function_handle'
 		X = ax(profile);
 		
-	case {'lib.module.ProfileMapping', 'lib.module.ProfileAxis'}
-		X = ax.map(profile);
+	case {'lib.profile.mapping', 'lib.profile.axis'}
+		X = ax.map('data', profile);
 		
 	case 'double'
 		X = ax;

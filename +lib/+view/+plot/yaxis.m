@@ -2,7 +2,7 @@ function yaxis(AY,varargin)
 if nargin == 2
 	PROFILES = varargin{1};
 else
-	PROFILES = lib.module.array();
+	PROFILES = lib.ecma.array();
 end
 
 ah = gca;
@@ -15,7 +15,7 @@ end
 % set y lim
 if isfield(AY,'clip')
 	switch(class(AY.clip))
-		case 'lib.module.ProfileClip'
+		case 'lib.profile.clip'
 		case_profileclip(AY,PROFILES)
 			
 		case 'double'
